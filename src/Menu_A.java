@@ -26,16 +26,25 @@ public class Menu_A {
             case 1:
                 tree.printInOrderAVL();
                 break;
+
             case 2:
                 System.out.println("Give a date to get it's temperature.\nThe day must be of the following form: yyyy/mm/dd");
                 inputDate = scan.next();
                 String intDate = inputDate.replaceAll("/",""); //it splits the date
                 System.out.println(search.searchAVL(Integer.parseInt(intDate), tree.root));
                 break;
+
             case 3:
+                editTemperature editT = new editTemperature();
+                System.out.println("Give a date to get it's temperature.\nThe day must be of the following form: yyyy/mm/dd");
+                inputDate = scan.next();
+                intDate = inputDate.replaceAll("/",""); //it splits the date
+                System.out.println(editT.editTemp(Integer.parseInt(intDate), tree.root, tree));
                 break;
+
             case 4:
                 break;
+
             case 5:
                 System.out.println("Exiting the program\n...");
                 TimeUnit.SECONDS.sleep(1);
@@ -45,6 +54,7 @@ public class Menu_A {
                 TimeUnit.SECONDS.sleep(1);
                 System.exit(0);
                 break;
+
             default:
                 System.out.println("Wrong Input");
 

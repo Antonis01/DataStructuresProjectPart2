@@ -1,6 +1,6 @@
 public class AVLTree {
 
-    node root;
+    public node root;
 
     public AVLTree()
     {
@@ -14,7 +14,7 @@ public class AVLTree {
         return root;
     }
 
-    private node insertItem(int date, float temperature, node n)
+    public node insertItem(int date, float temperature, node n)
     {
         if (n == null) {
 
@@ -42,6 +42,8 @@ public class AVLTree {
                 else
                     n=Rotations.doubleRotateRight(n);
             }
+        }else if(date == n.date){
+            n.temperature = temperature;
         }
 
         n.height=getMaxHeight(getHeight(n.left), getHeight(n.right)) + 1;
@@ -84,5 +86,4 @@ public class AVLTree {
             printInOrderAVL(head.right, "right");
         }
     }
-
 }
