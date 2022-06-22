@@ -12,7 +12,9 @@ public class Date{
         return year + "/" + month + "/" + day;
     }
 
-    public Integer displayIntDate() {return Integer.parseInt(year + month + day); }
+    public Integer displayIntDate() {
+        return Integer.parseInt(year + month + day);
+    }
 
     public String getMonth() {
         return month;
@@ -25,4 +27,5 @@ public class Date{
     public String getYear() {
         return year;
     }
+
 }

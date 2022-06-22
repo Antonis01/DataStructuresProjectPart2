@@ -10,6 +10,7 @@ public class loadCSV {
         ArrayList<oceanEntries> oceanArray = new ArrayList<>();
         String[] tempString = new String[2];
         String[] tempDateString = new String[3];
+        AVLTree avl = new AVLTree();
 
         try {
 
@@ -18,7 +19,8 @@ public class loadCSV {
             String readLine = readCSV.readLine();
 
             while((readLine = readCSV.readLine())!=null){
-                tempString = readLine.split(splitBy);   //it splits the data of the line 
+
+                tempString = readLine.split(splitBy);   //it splits the data of the line
                 tempDateString = tempString[0].split(splitBy2); //it splits the date
 
                 var date = new Date(tempDateString[2],tempDateString[0], tempDateString[1]);
@@ -26,7 +28,6 @@ public class loadCSV {
 
                 oceanArray.add(oceanEn);
             }
-
 
         }catch (IOException e){
             e.printStackTrace();

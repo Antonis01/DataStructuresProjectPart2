@@ -1,16 +1,14 @@
 import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.Collection;
 
 public class Main {
 
     public static ArrayList<oceanEntries> dataOcean = new ArrayList<>(loadCSV.load_CSV_file());
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
-        int j=0;
-        for(var i: dataOcean){
-            System.out.println(++j + " " + i.getDate().displayDate() + " " + i.getT_degC());
-        }
+        generalMenu.generalMenu();
+
 
     }
 }
