@@ -19,7 +19,7 @@ public class Menu_A {
 
         do{
             System.out.println("========AVL TREE MENU /// Exercise A========\n1)Print AVL Tree data in order.\n2)Search for a temperature based on a date.");
-            System.out.println("3)Change a temperature of a specified date.\n4)Delete an entry of a specified date.\n5)Exit the program.\n");
+            System.out.println("3)Change a temperature of a specified date.\n4)Delete an entry of a specified date.\n5)Exit the program.");
             System.out.print("============================================\nType a number...");
 
             try {

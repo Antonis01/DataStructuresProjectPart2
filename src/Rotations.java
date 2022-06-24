@@ -52,4 +52,26 @@ public class Rotations {
 
         return n;
     }
+
+    public static Node checkRotateRightTemp(float temp, Node n, int height){
+        if(temp > n.temperature && height ==2){
+            if (temp > n.right.temperature)
+                n=Rotations.rotateRight(n);
+            else
+                n=Rotations.doubleRotateRight(n);
+        }
+
+        return n;
+    }
+
+    public static Node checkRotateLeftTemp(float temp, Node n, int height){
+        if(temp < n.temperature && height == -2){
+            if (temp < n.left.temperature)
+                n=Rotations.rotateLeft(n);
+            else
+                n=Rotations.doubleRotateLeft(n);
+        }
+
+        return n;
+    }
 }
