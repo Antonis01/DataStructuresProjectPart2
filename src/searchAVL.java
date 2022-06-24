@@ -29,7 +29,7 @@ public class searchAVL {
 
                 temp=n.temperature;
             }
-            return Float.toString(temp);
+            return "The temperature is " + Float.toString(temp) + " degrees Celsius.";
         }catch (NullPointerException npe){
             return "Date not found";
         }
