@@ -11,7 +11,7 @@ public class Menu_A {
         searchAVL search = new searchAVL();
         String inputDate;
         for(var i: Main.dataOcean){
-            tree.insertItem(i.getDate().displayIntDate(),i.getT_degC());
+            tree.insertItem(i.getDate().displayIntDate(),i.getT_degC(), false);
         }
         Main.dataOcean.removeAll(Main.dataOcean);     //deleting all the data from the dataOcean ArrayList
 
@@ -40,9 +40,17 @@ public class Menu_A {
                 inputDate = scan.next();
                 intDate = inputDate.replaceAll("/",""); //it splits the date
                 System.out.println(editT.editTemp(Integer.parseInt(intDate), tree.root, tree));
+                tree.printInOrderAVL();
                 break;
 
             case 4:
+                deleteNode deleteN = new deleteNode();
+                System.out.println("Give a date that you wish to delete.\nThe day must be of the following form: yyyy/mm/dd");
+                inputDate = scan.next();
+                intDate = inputDate.replaceAll("/",""); //it splits the date
+                deleteN.deleteNode(Integer.parseInt(intDate),tree.root);
+                try{
+                tree.printInOrderAVL();}catch (StringIndexOutOfBoundsException s){ System.out.println("Error");}
                 break;
 
             case 5:

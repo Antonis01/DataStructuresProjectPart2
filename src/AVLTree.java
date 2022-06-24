@@ -1,57 +1,45 @@
 public class AVLTree {
 
-    public node root;
-
+    public Node root;
+    private boolean edit=false;
     public AVLTree()
     {
         //default constructor
         root = null;
     }
 
-    public node insertItem(int date, float temp)
+    public Node insertItem(int date, float temp, boolean edit)
     {
-        root = insertItem(date, temp, root);
+        root = insertItem(date, temp, root, edit);
         return root;
     }
 
-    public node insertItem(int date, float temperature, node n)
+    public Node insertItem(int date, float temperature, Node n, boolean edit)
     {
-        if (n == null) {
+        if (n == null)
+            n = new Node(date, temperature);
 
-            n = new node(date, temperature);
-
-        }
         else if (date < n.date)
         {
             //add a node when the given date is earlier than the date on the n.date (n=node)
-            n.left = insertItem(date, temperature, n.left);
-            if(getHeight(n.right) - getHeight(n.left) == -2) {
-                if (date < n.left.date)
-                    n=Rotations.rotateLeft(n);
-                else
-                    n=Rotations.doubleRotateLeft(n);
-            }
+            n.left = insertItem(date, temperature, n.left, edit);
+            n = Rotations.checkRotateLeft(date, n, getHeight(n.right) - getHeight(n.left));
+
         }
         else if(date > n.date)
         {
             //add a node when the given date is later than the date on the n.date (n=node)
-            n.right = insertItem(date, temperature, n.right);
-            if(getHeight(n.right) - getHeight(n.left) == 2) {
-                if (date > n.right.date)
-                    n=Rotations.rotateRight(n);
-                else
-                    n=Rotations.doubleRotateRight(n);
-            }
-        }else if(date == n.date){
+            n.right = insertItem(date, temperature, n.right, edit);
+            n = Rotations.checkRotateRight(date, n, getHeight(n.right) - getHeight(n.left));
+
+        }else if(edit)
             n.temperature = temperature;
-        }
 
         n.height=getMaxHeight(getHeight(n.left), getHeight(n.right)) + 1;
-
         return n;
     }
 
-    public static int getHeight(node n){
+    public static int getHeight(Node n){
         if(n==null)
             return -1;
         else
@@ -69,7 +57,7 @@ public class AVLTree {
         printInOrderAVL(root,"root");
     }
 
-    public void printInOrderAVL(node head, String position)
+    public void printInOrderAVL(Node head, String position)
     {
         String dateString = "";
         char split = '/';
@@ -85,5 +73,26 @@ public class AVLTree {
             System.out.println(height + " " + position +" " + dateString + " " + head.temperature);
             printInOrderAVL(head.right, "right");
         }
+    }
+
+    //checking if the node is not balanced
+    //0 -> node balanced
+    //else -> node unbalanced
+
+    public int avlIsBalanced(Node node){
+        if(node == null)
+            return 0;
+        else
+            return AVLTree.getHeight(node.right) - AVLTree.getHeight(node.left);
+    }
+
+    public Node minDate(Node node)
+    {
+        Node min = node;
+
+        while (min.left != null)
+            min = min.left;
+
+        return min;
     }
 }

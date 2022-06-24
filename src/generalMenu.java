@@ -22,6 +22,4 @@ public class generalMenu{
                         System.exit(0);
         }
     }
-
-
 }

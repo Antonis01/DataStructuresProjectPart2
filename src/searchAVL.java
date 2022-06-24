@@ -1,6 +1,6 @@
 public class searchAVL {
 
-    private node root;
+    private Node root;
 
     public String searchAVL(int date)
     {
@@ -9,11 +9,11 @@ public class searchAVL {
 
     }
 
-    public String searchAVL(int date, node n){
-       boolean found = false;
-       float temp=0.0f;
+    public String searchAVL(int date, Node n){
+        boolean found = false;
+        float temp=0.0f;
 
-       try {
+        try {
             while(n!=null && !found){
 
                 int checkDate = n.date;
@@ -30,8 +30,8 @@ public class searchAVL {
                 temp=n.temperature;
             }
             return Float.toString(temp);
-       }catch (NullPointerException npe){
+        }catch (NullPointerException npe){
             return "Date not found";
-       }
+        }
     }
 }
