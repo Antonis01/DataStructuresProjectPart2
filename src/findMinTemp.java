@@ -13,8 +13,8 @@ public class findMinTemp {
             while (n.left != null){
                 n = n.left;
             }
-            String strDate = addChar.splitDate(Integer.toString(n.date),'/',4);
-            return "The minimum temperature is " + Float.toString(n.temperature) + " degrees Celsius " + addChar.splitDate(strDate,'/',7);
+            String strDate = addChar.splitDate(Integer.toString(n.date));
+            return "The minimum temperature is " + Float.toString(n.temperature) + "  degrees Celsius and the date is " + strDate;
         }catch (NullPointerException npe){
             return "Date not found";
         }

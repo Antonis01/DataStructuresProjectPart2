@@ -27,5 +27,4 @@ public class Date{
     public String getYear() {
         return year;
     }
-
 }

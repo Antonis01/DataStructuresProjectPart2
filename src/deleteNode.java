@@ -14,11 +14,12 @@ public class deleteNode extends searchAVL {
         else if (date > n.date)
             n.right = deleteNode(date, n.right);
         else {
+            //if date == n.date then...
             if (n.right == null || n.left == null) {
                 temp = null;
                 if (n.right == temp)
                     temp = n.left;
-                else if (n.left == null)
+                else if (n.left == temp)
                     temp = n.right;
 
                 if (temp == null){

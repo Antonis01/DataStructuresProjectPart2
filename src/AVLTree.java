@@ -23,14 +23,14 @@ public class AVLTree {
         {
             //add a node when the given date is earlier than the date on the n.date (n=node)
             n.left = insertItem(date, temperature, n.left, edit);
-            n = Rotations.checkRotateLeft(date, n, getHeight(n.right) - getHeight(n.left));
+            n = Rotations.checkRotateLeft(date, n, avlIsBalanced(n));
 
         }
         else if(date > n.date)
         {
             //add a node when the given date is later than the date on the n.date (n=node)
             n.right = insertItem(date, temperature, n.right, edit);
-            n = Rotations.checkRotateRight(date, n, getHeight(n.right) - getHeight(n.left));
+            n = Rotations.checkRotateRight(date, n, avlIsBalanced(n));
 
         }else if(edit)
             n.temperature = temperature;
@@ -60,20 +60,17 @@ public class AVLTree {
     public void printInOrderAVL(Node head, String position)
     {
         String dateString = "";
-        char split = '/';
-        int height=0;
 
         if (head != null)
         {
-            dateString = addChar.splitDate(Integer.toString(head.date),split,4);
-            dateString = addChar.splitDate(dateString,split,7);
+            dateString = addChar.splitDate(Integer.toString(head.date));
 
             printInOrderAVL(head.left, "left");
-            height = getHeight(head) + 1;
-            System.out.println(height + " " + position +" " + dateString + " " + head.temperature);
+            System.out.println(getHeight(head) + " " + position +" " + dateString + " " + head.temperature);
             printInOrderAVL(head.right, "right");
         }
     }
+
 
     //checking if the node is not balanced
     //0 -> node balanced
@@ -86,9 +83,12 @@ public class AVLTree {
             return AVLTree.getHeight(node.right) - AVLTree.getHeight(node.left);
     }
 
-    public Node minDate(Node node)
+   public Node minDate(Node node)
     {
         Node min = node;
+
+        if(node == null)
+            return null;
 
         while (min.left != null)
             min = min.left;

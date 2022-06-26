@@ -14,13 +14,13 @@ public class editTemperature extends searchAVL{
                 newTemperature=scanTemp.nextFloat();
 
                 tree.insertItem(date,newTemperature,node, true);
-                String strDate = addChar.splitDate(Integer.toString(date),'/',4);
+                String strDate = addChar.splitDate(Integer.toString(date));
 
-                return "You have changed the temperature for " + addChar.splitDate(strDate,'/',7) + " to " + Float.toString(newTemperature) + " degrees Celsius.";
+                return "You have changed the temperature for " + strDate + " to " + Float.toString(newTemperature) + " degrees Celsius.";
 
 
         }catch (NumberFormatException nfe){
-            return "Date not found";
+            return "Date not found.";
         }
 
     }

@@ -43,17 +43,14 @@ public class AVLTreeTemperature {
     public void printInOrderAVL(Node head, String position)
     {
         String dateString = "";
-        char split = '/';
-        int height=0;
+
 
         if (head != null)
         {
-            dateString = addChar.splitDate(Integer.toString(head.date),split,4);
-            dateString = addChar.splitDate(dateString,split,7);
+            dateString = addChar.splitDate(Integer.toString(head.date));
 
             printInOrderAVL(head.left, "left");
-            height = AVLTree.getHeight(head) + 1;
-            System.out.println(height + " " + position +" " + dateString + " " + head.temperature);
+            System.out.println(AVLTree.getHeight(head) + " " + position +" " + dateString + " " + head.temperature);
             printInOrderAVL(head.right, "right");
         }
     }
