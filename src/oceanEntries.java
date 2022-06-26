@@ -14,4 +14,12 @@ public class oceanEntries{
     public Date getDate() {
         return date;
     }
+
+    public void setT_degC(float newT_degC){
+        this.T_degC = newT_degC;
+    }
+
+    public void setDate(Date newDate){
+        this.date = newDate;
+    }
 }
