@@ -47,7 +47,7 @@ public class AVLTreeTemperature {
 
         if (head != null)
         {
-            dateString = addChar.splitDate(Integer.toString(head.date));
+            dateString = addChar.splitDate(head.date);
 
             printInOrderAVL(head.left, "left");
             System.out.println(AVLTree.getHeight(head) + " " + position +" " + dateString + " " + head.temperature);

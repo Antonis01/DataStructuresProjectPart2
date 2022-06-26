@@ -14,7 +14,7 @@ public class editTemperature extends searchAVL{
                 newTemperature=scanTemp.nextFloat();
 
                 tree.insertItem(date,newTemperature,node, true);
-                String strDate = addChar.splitDate(Integer.toString(date));
+                String strDate = addChar.splitDate(date);
 
                 return "You have changed the temperature for " + strDate + " to " + Float.toString(newTemperature) + " degrees Celsius.";
 

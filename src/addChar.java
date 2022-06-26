@@ -1,6 +1,6 @@
 public class addChar {
 
-    public static String splitDate(String date)
+    public static String splitDate(int date)
     {
         //A method that splits the date back to its original form
         StringBuffer s1 = new StringBuffer(date);
