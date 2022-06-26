@@ -14,7 +14,7 @@ public class findMaxTemp {
                 n = n.right;
             }
             String strDate = addChar.splitDate(n.date);
-            return "The maximum temperature is " + Float.toString(n.temperature) + " degrees Celsius and the date is " + strDate;
+            return "The maximum temperature is " + Float.toString(n.temperature) + " degrees \nCelsius and the date is " + strDate;
         }catch (NullPointerException npe){
             return "Date not found";
         }

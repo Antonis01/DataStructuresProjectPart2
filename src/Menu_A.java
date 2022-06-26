@@ -33,7 +33,7 @@ public class Menu_A {
                         break;
 
                     case 2:
-                        System.out.println("Give a date to get it's temperature.\nThe day must be of the following form: yyyy/mm/dd");
+                        System.out.println("Give a date to get it's temperature.\nThe day must be of the following form: \nyyyy/mm/dd");
                         inputDate = scan.next();
                         String intDate = inputDate.replaceAll("/", ""); //it splits the date
                         System.out.println(search.searchAVL(Integer.parseInt(intDate), tree.root));
@@ -41,7 +41,7 @@ public class Menu_A {
 
                     case 3:
                         editTemperature editT = new editTemperature();
-                        System.out.println("Give a date to get it's temperature.\nThe day must be of the following form: yyyy/mm/dd");
+                        System.out.println("Give a date that you want to edit \nit's temperature.\nThe day must be of the following form: \nyyyy/mm/dd");
                         inputDate = scan.next();
                         intDate = inputDate.replaceAll("/", ""); //it splits the date
                         System.out.println(editT.editTemp(Integer.parseInt(intDate), tree.root, tree));
@@ -49,7 +49,7 @@ public class Menu_A {
 
                     case 4:
                         deleteNode deleteN = new deleteNode();
-                        System.out.println("Give a date that you wish to delete.\nThe day must be of the following form: yyyy/mm/dd");
+                        System.out.println("Give a date that you wish to delete.\nThe day must be of the following form: \nyyyy/mm/dd");
                         inputDate = scan.next();
                         intDate = inputDate.replaceAll("/", ""); //it splits the date
                         deleteN.deleteNode(Integer.parseInt(intDate), tree.root);
