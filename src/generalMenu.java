@@ -17,6 +17,7 @@ public class generalMenu{
                         Menu_B.menu();
                         break;
                 case 3:
+                    Menu_C.menu();
                         break;
                 default:
                         System.out.println("Wrong Input");
