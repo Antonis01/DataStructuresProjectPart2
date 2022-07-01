@@ -66,7 +66,7 @@ public class AVLTree {
             dateString = addChar.splitDate(head.date);
 
             printInOrderAVL(head.left, "left");
-            System.out.println(getHeight(head) + " " + position +" " + dateString + " " + head.temperature);
+            System.out.println(getHeight(head)+1 + " " + position +" " + dateString + " " + head.temperature);
             printInOrderAVL(head.right, "right");
         }
     }
